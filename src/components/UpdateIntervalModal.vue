@@ -2,6 +2,7 @@
 import { defineComponent, onMounted, reactive } from 'vue';
 import { forceSync } from '../api/repos';
 import { getSettings } from '../api/settings';
+import { updateIntervals } from '../common/config';
 
 export default defineComponent({
   name: 'Navbar',
@@ -29,6 +30,7 @@ export default defineComponent({
 
     return {
       state,
+      updateIntervals,
       handleUpdateNow,
       setIntervalHandler,
     };
@@ -62,22 +64,12 @@ export default defineComponent({
           <div class="p-6 pt-0 text-center">
             <div class="flex flex-row">
               <button
+                v-for="item in updateIntervals"
+                :key="item"
                 class="cursor-pointer text-teal-800 text-xl font-semibold hover:text-teal-500 mx-2"
-                @click="setIntervalHandler(20)"
+                @click="setIntervalHandler(item)"
               >
-                20
-              </button>
-              <button
-                class="cursor-pointer text-teal-800 text-xl font-semibold hover:text-teal-500 mx-2"
-                @click="setIntervalHandler(40)"
-              >
-                40
-              </button>
-              <button
-                class="cursor-pointer text-teal-800 text-xl font-semibold hover:text-teal-500 mx-2"
-                @click="setIntervalHandler(60)"
-              >
-                60
+                {{ item }}
               </button>
             </div>
           </div>
