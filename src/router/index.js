@@ -7,10 +7,6 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/repos',
-    },
-    {
-      path: '/repos',
       name: 'Repos',
       component: RepoListView,
     },

@@ -23,7 +23,7 @@ export default defineComponent({
     });
     const handleUpdateNow = async () => {
       await forceSync();
-      router.replace('/repos');
+      router.replace('/');
     };
     const setIntervalHandler = () => {
       state.showSettings = true;

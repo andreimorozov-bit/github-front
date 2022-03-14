@@ -20,7 +20,7 @@ export default defineComponent({
     });
 
     const backHandler = () => {
-      router.push('/repos');
+      router.push('/');
     };
 
     return {
